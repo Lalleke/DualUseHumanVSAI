@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deloitte Challenge Leaderboard</title>
+    <style>
+        body { font-family: 'Open Sans', Arial, sans-serif; background-color: #000; color: #fff; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; }
+        #container { background: #111; width: 90%; max-width: 500px; padding: 30px; border-radius: 4px; border-top: 6px solid #86bc25; text-align: center; }
+        .logo-outer { width: 100%; max-width: 160px; margin: 0 auto 25px auto; }
+        #logo { width: 100%; height: auto; display: block; }
+        h2 { color: #86bc25; text-transform: uppercase; letter-spacing: 1px; }
+        table { width: 100%; margin-top: 20px; border-collapse: collapse; text-align: left; }
+        th, td { padding: 12px; border-bottom: 1px solid #333; }
+        th { color: #86bc25; font-size: 0.7rem; text-transform: uppercase; }
+        .back-btn { display: inline-block; margin-top: 25px; color: #000; background: #86bc25; padding: 10px 20px; text-decoration: none; font-weight: bold; text-transform: uppercase; font-size: 0.8rem; }
+        #loading { padding: 40px; color: #888; }
+    </style>
+</head>
+<body>
+
+<div id="container">
+    <div class="logo-outer">
+        <img src="images/logo2.png" alt="Deloitte Logo" id="logo">
+    </div>
+    <h2>Top Performers</h2>
+    
+    <div id="loading">Loading Rankings...</div>
+    
+    <table id="leaderboard-table" style="display:none;">
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Name</th>
+                <th>Company</th>
+                <th>Score</th>
+            </tr>
+        </thead>
+        <tbody id="leaderboard-body"></tbody>
+    </table>
+
+    <a href="index.html" class="back-btn">Back to Game</a>
+</div>
+
+<script>
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz0CZBIqFlmBkGIZoU6yVFDak_B4FhkqnvnEUl7ZILjOVWq9-5htipRMk_zeqWZ_ZOoyg/exec";
+
+    function loadLeaderboard() {
+        fetch(SCRIPT_URL)
+            .then(res => res.json())
+            .then(data => {
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('leaderboard-table').style.display = 'table';
+                const body = document.getElementById('leaderboard-body');
+                
+                // Maps the Google Sheet columns to the table
+                // row[0] = Name, row[1] = Company, row[4] = Score
+                body.innerHTML = data.map((row, i) => `
+                    <tr>
+                        <td>${i + 1}</td>
+                        <td>${row[0]}</td>
+                        <td>${row[1]}</td>
+                        <td>${row[4]}</td>
+                    </tr>
+                `).join('');
+            })
+            .catch(err => {
+                document.getElementById('loading').innerText = "Unable to load leaderboard. Please try again later.";
+                console.error(err);
+            });
+    }
+
+    document.addEventListener('DOMContentLoaded', loadLeaderboard);
+</script>
+
+</body>
+</html>
