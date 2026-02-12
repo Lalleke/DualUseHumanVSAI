@@ -34,9 +34,11 @@
         .prob-fill { height: 100%; background: #86bc25; width: 0%; transition: width 0.2s; }
         .label { position: absolute; top: 10px; left: 20px; font-weight: bold; color: #86bc25; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; }
 
-        /* Slider Overlay */
         #slider-overlay { position: fixed; inset: 0; background: #000; z-index: 2000; display: flex; flex-direction: column; justify-content: center; align-items: center; }
         #slider-img { max-width: 95%; max-height: 85vh; object-fit: contain; }
+        
+        /* Score animation */
+        .penalty { color: #ff4d4d !important; transition: color 0.3s; }
     </style>
 </head>
 <body>
@@ -203,14 +205,18 @@
 
     function humanGuess(guess) {
         if(!isActive || hIdx >= products.length) return;
-        if(guess === products[hIdx].isDualUse) hScore++;
+        if(guess === products[hIdx].isDualUse) {
+            hScore++;
+        } else {
+            hScore--; // Penalty for wrong answer
+        }
         document.getElementById('h-score-val').innerText = hScore;
         hIdx++;
         updateH();
     }
 
     async function runAILoop() {
-        // We want at least 3 mistakes across the whole product list
+        // Guarantee exactly 3 mistakes
         const totalItems = products.length;
         const mistakeIndices = [];
         while(mistakeIndices.length < 3) {
@@ -231,9 +237,9 @@
             prob.style.width = "94%";
             await new Promise(r => setTimeout(r, 200));
 
-            // Force exactly 3 mistakes at random intervals
             if(mistakeIndices.includes(aiIdx)) {
                 aiMistakes++;
+                aiScore--; // AI also gets the penalty
             } else {
                 aiScore++;
             }
@@ -252,7 +258,7 @@
                 <div style="font-size:0.85rem; margin-top:5px; color:#aaa;">
                     Items: ${products.length} <br>
                     Time: ${totalSec}s <br>
-                    Mistakes: ${aiMistakes}
+                    Mistakes: ${aiMistakes} (Penalty Applied)
                 </div>
             `;
             document.getElementById('ai-img').style.opacity = "0.1";
