@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dual-Use Challenge: Human vs AI Agent</title>
+    <title>Dual Use Game: Human vs AI Agent</title>
     <style>
         body { font-family: 'Open Sans', Arial, sans-serif; background-color: #000; color: #fff; margin: 0; overflow: hidden; height: 100vh; display: flex; flex-direction: column; }
         .hidden { display: none !important; }
@@ -49,14 +49,14 @@
 <div id="reg-screen">
     <div class="reg-box">
         <img src="images/logo2.png" style="height:30px; margin-bottom:20px;">
-        <h2>Human vs AI Agent</h2>
+        <h2>Dual use game, human vs AI</h2>
         <input type="text" id="reg-name" placeholder="Full Name">
         <input type="text" id="reg-company" placeholder="Company">
         <input type="text" id="reg-role" placeholder="Role">
-        <input type="email" id="reg-email" placeholder="Email">
+        <input type="email" id="reg-email" placeholder="Email Address">
         <button id="start-btn">Start Game</button>
         <button class="secondary-btn" onclick="toggleSlider()">Show Info Slide</button>
-        <p><a href="leaderboard.html" style="color:#86bc25; text-decoration:none; font-size:0.8rem;">🏆 View Global Leaderboard</a></p>
+        <p><a href="leaderboard.html" style="color:#86bc25; text-decoration:none; font-size:0.8rem;">View Leaderboard</a></p>
     </div>
 </div>
 
@@ -106,7 +106,7 @@
         <div style="border-left:1px solid #333; padding-left:50px;"><h3 style="color:#86bc25;">AI AGENT</h3><h2 id="final-ai" style="color:#86bc25; font-size: 3rem;">0</h2></div>
     </div>
     <button onclick="location.href='leaderboard.html'" style="width:280px;">Global Leaderboard</button>
-    <button class="secondary-btn" onclick="location.reload()" style="width:280px;">Play Again</button>
+    <button class="secondary-btn" onclick="location.reload()">Play Again</button>
 </div>
 
 <script>
@@ -117,11 +117,11 @@
         { name: "Carbon Fiber Roll", image: "https://m.media-amazon.com/images/I/81PsiYlPIVL._AC_UF894,1000_QL80_.jpg", isDualUse: true },
         { name: "Luxury Smartwatch", image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=500", isDualUse: false },
         { name: "Industrial Magnet", image: "https://www.cmtcompanies.com/wp-content/uploads/2017/01/57-DASH-magnet.jpg", isDualUse: true },
-        { name: "Nitrogen Tank (Resistant Alloy)", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTA2Dd9blOb5taCLB5qW-FF6U_eVyg-JNnZvg&s", isDualUse: true },
+        { name: "Liquid Nitrogen Tank (Resistant Alloy)", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTA2Dd9blOb5taCLB5qW-FF6U_eVyg-JNnZvg&s", isDualUse: true },
         { name: "Satellite Phone", image: "https://www.officeeasy.be/media/catalog/product/cache/16822256cee3c919bf29bfc0144d0975/i/r/iridium_extreme.jpg", isDualUse: true },
         { name: "Instant Coffee", image: "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?q=80&w=500", isDualUse: false },
         { name: "Laboratory Centrifuge", image: "https://m.media-amazon.com/images/I/61g+cYn2kyL._AC_UF894,1000_QL80_.jpg", isDualUse: true },
-        { name: "Steel Pipe (High Spec)", image: "https://yenaengineering.nl/wp-content/uploads/2021/08/image.jpeg", isDualUse: true },
+        { name: "Stainless Steel Pipe (High Spec)", image: "https://yenaengineering.nl/wp-content/uploads/2021/08/image.jpeg", isDualUse: true },
         { name: "Encryption Software", image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=500", isDualUse: true },
         { name: "Industrial Fertilizer", image: "https://images.unsplash.com/photo-1628352081506-83c43123ed6d?q=80&w=500", isDualUse: false },
         { name: "Solar Panel", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaHUI-Bvr5LxlJcF-hgywBzy_7lj4EZ_fUrA&s", isDualUse: false },
@@ -139,14 +139,14 @@
         { name: "Consumer Drone", image: "https://images.unsplash.com/photo-1507582020474-9a35b7d455d9?q=80&w=500", isDualUse: true },
         { name: "Diesel Generator", image: "https://www.auto-service.be/assets/media/29748/diesel-generator-geluidsgedempt-230v400v-10kva-3.jpg", isDualUse: false },
         { name: "Digital Oscilloscope", image: "https://be.farnell.com/productimages/large/en_GB/3228047-40.jpg", isDualUse: true },
-        { name: "Nickel Alloy", image: "https://specialpipingmaterials.com/wp-content/uploads/2019/07/Copy-of-Untitled-2-1.png", isDualUse: true },
+        { name: "Nickel Alloy", image: "https://www.neonickel.com/wp-content/uploads/2023/10/Characteristics-Effects-of-Alloying-Elements.jpg", isDualUse: true },
         { name: "Fiber Optic Cable", image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=500", isDualUse: true },
         { name: "Vacuum Pump", image: "https://cbeuptime.com/wp-content/uploads/2015/03/industrial-vacuum-pump-compressor-picture-id1152748867.jpg", isDualUse: true },
         { name: "Titanium Rods", image: "https://m.media-amazon.com/images/I/71mI-+fS9EL._AC_UF1000,1000_QL80_.jpg", isDualUse: true },
         { name: "Industrial Smoke Detector", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSt-3Q2qHWY7wL9Lpx-pKXiXU92oXrqeEVXbw&s", isDualUse: false },
-        { name: "Server Rack", image: "https://cdn11.bigcommerce.com/s-bmqf4dxrop/images/stencil/1030x680/uploaded_images/uploaded_images/untitled-design-7-1-.png?t=1733945236", isDualUse: false },
+        { name: "Server Rack", image: "https://www.eziblank.com/wp-content/uploads/2023/08/serverracks-scaled.jpg", isDualUse: false },
         { name: "Microscope", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-XgSkqXloXilxRV2f_LfRXGnoe4v0U8mJAA&s", isDualUse: false },
-        { name: "Pressure Sensor", image: "https://res.cloudinary.com/rsc/image/upload/b_rgb:FFFFFF,c_pad,dpr:2.625,f_auto,h:214,q_auto,w:380/c_pad,h:214,w_380/F8285729-01?pgw:1", isDualUse: true },
+        { name: "Pressure Sensor", image: "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcT8clzc3wjqRIAFMk9JussliDIsyJV5pVbuiyskyvstylO2b1NpAuTPWxtmgHDs0su9bGWl7HE13A3KpZGc8hdtR-Kg0v991njQgdtEO4YtfXNlV8vBzI4OrS_IGPhxpEpXvZMefA&usqp=CAc", isDualUse: true },
         { name: "High-Speed Camera", image: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=500", isDualUse: true },
         { name: "Ball Bearings", image: "https://m.media-amazon.com/images/I/61IqIz62s6L.jpg", isDualUse: true },
         { name: "Graphite Electrodes", image: "https://www.eastcarb.com/wp-content/uploads/2024/10/What-is-Graphite-Electrode.png", isDualUse: true },
@@ -169,7 +169,7 @@
             role: document.getElementById('reg-role').value,
             email: document.getElementById('reg-email').value
         };
-        if(!userData.name || !userData.email) return alert("Please fill Name/Email");
+        if(!userData.name || !userData.email) return alert("Please provide Name and Email.");
 
         document.getElementById('reg-screen').classList.add('hidden');
         document.getElementById('main-view').classList.remove('hidden');
@@ -196,7 +196,7 @@
             document.getElementById('h-img').src = products[hIdx].image;
             document.getElementById('h-name').innerText = products[hIdx].name;
         } else {
-            document.getElementById('h-name').innerText = "Queue Finished";
+            document.getElementById('h-name').innerText = "Process Complete";
             document.getElementById('h-img').style.opacity = "0.1";
         }
     }
@@ -210,6 +210,14 @@
     }
 
     async function runAILoop() {
+        // We want at least 3 mistakes across the whole product list
+        const totalItems = products.length;
+        const mistakeIndices = [];
+        while(mistakeIndices.length < 3) {
+            let r = Math.floor(Math.random() * totalItems);
+            if(!mistakeIndices.includes(r)) mistakeIndices.push(r);
+        }
+
         while(isActive && aiIdx < products.length) {
             updateAI();
             const log = document.getElementById('ai-log');
@@ -219,28 +227,28 @@
             prob.style.width = "40%";
             await new Promise(r => setTimeout(r, 400));
 
-            log.innerText = "Classifying dual-use...";
-            prob.style.width = "90%";
+            log.innerText = "Cross-referencing Annex I...";
+            prob.style.width = "94%";
             await new Promise(r => setTimeout(r, 200));
 
-            // 92% Accuracy Logic
-            if(Math.random() < 0.92) {
-                aiScore++;
-            } else {
+            // Force exactly 3 mistakes at random intervals
+            if(mistakeIndices.includes(aiIdx)) {
                 aiMistakes++;
+            } else {
+                aiScore++;
             }
 
             document.getElementById('ai-score-val').innerText = aiScore;
             aiIdx++;
             prob.style.width = "0%";
-            await new Promise(r => setTimeout(r, 50));
+            await new Promise(r => setTimeout(r, 80));
         }
         
         if (isActive) {
             const totalSec = ((Date.now() - aiStartTime) / 1000).toFixed(1);
-            document.getElementById('ai-log').innerText = "QUEUE COMPLETED";
+            document.getElementById('ai-log').innerText = "SCAN COMPLETE";
             document.getElementById('ai-name-box').innerHTML = `
-                <div style="color:#86bc25; font-size:1.1rem; margin-top:10px;">Batch Classified</div>
+                <div style="color:#86bc25; font-size:1.1rem; margin-top:10px;">Queue Finished</div>
                 <div style="font-size:0.85rem; margin-top:5px; color:#aaa;">
                     Items: ${products.length} <br>
                     Time: ${totalSec}s <br>
